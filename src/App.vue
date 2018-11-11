@@ -12,15 +12,12 @@
   import Header from './components/Header.vue'
   import Main from './components/Main.vue'
   import Footer from './components/Footer.vue'
+  import storageUtils from './utils/storigeUtils'
 
     export default {
       data(){
         return{
-          todos:[
-            {title:'吃饭',complete:false},
-            {title:'睡觉',complete:true},
-            {title:'打豆豆',complete:false},
-          ]
+          todos:storageUtils.readTodos()
         }
       },
       methods:{
@@ -39,6 +36,17 @@
         //全选或全部选所有todo
         selectAllTodos(isCheck){
           this.todos.forEach(todo => todo.complete = isCheck)
+        }
+      },
+      watch:{
+        todos:{
+          deep:true,
+          /*handler:function (value) {
+            //保存todos到localstorage
+            localStorage.setItem('todo_key',JSON.stringify(Value))
+            storageUtils.saveTodos(value)
+          }*/
+          hander: storageUtils.saveTodos
         }
       },
       components:{
