@@ -1,14 +1,15 @@
 <template>
   <ul class="todo-main">
-    <Item/>
-    <Item/>
-    <Item/>
+    <Item v-for="(todos,index) in todos" :key="index" :todo="todo" :deleteTodo="deleteTodo" :index="index"/>
   </ul>
 </template>
 
 <script>
-  import  Item from './Item.vue'
+  import Item from './Item.vue'
     export default {
+    //指定接收属性的属性名
+   //接收所有属性都会成为组件对象属性
+      props:['todos','deleteTodo'],
       components:{
         Item
       }
