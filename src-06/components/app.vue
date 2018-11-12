@@ -7,21 +7,20 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-xs-2 col-xs-offset-2">
         <div class="list-group">
-          <!--路有链接-->
-          <router-link class="list-group-item" to="/about">About</router-link>
-          <router-link class="list-group-item" to="/home">Home</router-link>
+          <!--使用指令v-link进行导航-->
+          <a class="list-group-item" v-link="{path:'/about'}">About</a>
+          <a class="list-group-item" v-link="{path:'/home'}">Home</a>
         </div>
       </div>
 
       <div class="col-xs-6">
         <div class="panel">
           <div class="panel-body">
-            <!--显示路由组件-->
-            <router-view ></router-view>
+            <!--用于渲染匹配的组件-->
+            <router-view keep-alive :msg="'xfzhang'"></router-view>
           </div>
         </div>
       </div>
@@ -30,7 +29,9 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+
+    }
 </script>
 
 <style>

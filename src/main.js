@@ -1,14 +1,13 @@
-/*
-入口js
- */
 import Vue from 'vue'
-import App from './App.vue'
-import './index.css'
+
+import App from './App'
+import router from './router'
 
 new Vue({
   el:'#app',
   components:{
     App
   },
-  template:'<App/>'
+  template:'<App/>',
+  router,
 })
