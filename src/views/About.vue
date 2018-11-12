@@ -1,5 +1,9 @@
 <template>
-    <div>About</div>
+  <div>
+    <h1>About</h1>
+    <div>About route component content</div>
+    {{msg}}
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
